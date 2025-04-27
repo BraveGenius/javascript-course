@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>08-practice-objects</title>
+</head>
+<body>
+  <button onclick="
+  playGame('heads');
+">heads</button>
+
+<button onclick="
+  playGame('tails');
+">tails</button>
+
+
+  <script>
+
+const score = JSON.parse(localStorage.getItem('score')) || {
+        wins: 0,
+        losses: 0
+      };
+ function playGame(guess) {
+        const randomNumber = Math.random();
+        const result = randomNumber < 0.5 ? 'heads' : 'tails';
+
+        console.log(guess === result ? 'You win!' : 'You lose!');
+      
+
+      if (guess === result) {
+          score.wins++;
+        } else {
+          score.losses++;
+        }
+        console.log(score);
+
+        localStorage.setItem('score', JSON.stringify(score));
+      }
+
+   /* function comparePrice(product1,product2){
+      if(product1.price < product2.price){
+        return product1;
+      }else{
+        return product2;
+      }
+    }
+
+
+    const product1={
+      name: 'basketball',
+      price: 2095
+    };
+
+    const product2 ={
+      name:'socks',
+      price:1090
+    };
+
+    console.log(comparePrice(product1, product2));
+    */
+    /*console.log(product);
+
+    product.price += 500;
+    console.log(product)
+
+    product['delivery-time'] = '3 days';
+    console.log(product);
+    */
+
+    //////////////8e///////
+    function isSameProduct(product1, product2) {
+        if (
+          product1.name === product2.name &&
+          product1.price === product2.price
+        ) {
+          return true;
+        } else {
+          return false;
+        }
+      }
+
+      // Here is an alternative solution that uses less code.
+      
+      function isSameProduct(product1, product2) {
+        return (
+          product1.name === product2.name &&
+          product1.price === product2.price
+        );
+      }
+
+      const product1 = {
+        name: 'basketball',
+        price: 2095
+      };
+
+      const product2 = {
+        name: 'socks',
+        price: 1090
+      };
+
+      const product3 = {
+        name: 'basketball',
+        price: 2095
+      };
+
+      console.log(isSameProduct(product1, product2));
+      console.log(isSameProduct(product1, product3));
+
+      console.log('hello:'.repeat(2));
+      console.log('test:'.repeat(3));
+
+
+    
+
+  </script>
+</body>
+</html>
